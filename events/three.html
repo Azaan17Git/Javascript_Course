@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body>
+    <h1>Azaan Manzoor</h1>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+</body>
+<script>
+
+    const sayDate = function(str){
+        console.log(str , Date.now());
+    }
+
+    let intervalId;
+
+    document.getElementById('startBtn').addEventListener('click',function(){
+     intervalId = setInterval(sayDate , 1000 , "hi")
+    })
+
+    document.getElementById('stopBtn').addEventListener('click',function(){
+      clearInterval(intervalId)
+    })
+
+</script>
+</html>
