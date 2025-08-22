@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start/Stop Printing Name</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      background: #007BFF;
+      color: white;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Click Start to Print Your Name</h2>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+  
+  <div id="output"></div>
+
+  <script>
+    let intervalId; // store the interval reference
+    const outputDiv = document.getElementById("output");
+
+    document.getElementById("startBtn").addEventListener("click", () => {
+      // prevent multiple intervals
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          const p = document.createElement("p");
+          p.textContent = "Azaan Manzoor"; // your name here
+          outputDiv.appendChild(p);
+        }, 500); // prints every 0.5 second
+      }
+    });
+
+    document.getElementById("stopBtn").addEventListener("click", () => {
+      clearInterval(intervalId);
+      intervalId = null; // reset for next start
+    });
+  </script>
+
+</body>
+</html>
